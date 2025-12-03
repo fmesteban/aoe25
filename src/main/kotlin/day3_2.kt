@@ -2,7 +2,7 @@ import java.io.File
 
 fun main() {
     val result = File("src/main/kotlin/resources/day3.txt").useLines { lines ->
-        lines.fold(0L) { joltage, line ->
+        lines.sumOf { line ->
             var numbers = line.toList().map { it.toString().toInt() }
             var count = 12
             var lineResult = ""
@@ -12,7 +12,7 @@ fun main() {
                 numbers = numbers.drop(numbers.indexOf(nextMax) + 1)
                 count--
             }
-            joltage + lineResult.toLong()
+            lineResult.toLong()
         }
     }
     print(result)
